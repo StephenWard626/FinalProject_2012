@@ -13,16 +13,18 @@ $(document).ready(function () {
         document.body.style.backgroundImage = "url('')";
         searchData = $("#search-box").val();
         searchAuth = $("#search-auth").val();
+
+        
         //handling empty search input field
-        if (searchData === "" || searchData === null) {
+        //if (searchData === "" || searchData === null) {
             //if(){
-            displayError();
-        }
-        else {
+            //displayError();
+        //}
+        //else {
             // console.log(searchData);
             // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData, getBookData()});
-            $.ajax({
-                url: bookUrl + searchData + "&maxResults=40&" + apiKey,
+        $.ajax({
+            url: bookUrl + searchData + "&maxResults=40&" + apiKey,
                 dataType: "json",
                 success: function (response) {
                     console.log(response)
@@ -39,7 +41,7 @@ $(document).ready(function () {
                     alert("Something went wrong. Please try again.");
                 }
             });
-        }
+        //}
         $("#search-box").val(""); //clearn search box
         $("#search-auth").val("");
     });
