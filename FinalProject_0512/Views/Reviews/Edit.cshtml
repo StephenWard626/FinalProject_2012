@@ -1,0 +1,44 @@
+﻿@model FinalProject_0512.Models.Reviews
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Reviews</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ReviewID" />
+            <div class="form-group">
+                <label asp-for="ReviewBook" class="control-label"></label>
+                <input asp-for="ReviewBook" class="form-control" />
+                <span asp-validation-for="ReviewBook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewCont" class="control-label"></label>
+                <input asp-for="ReviewCont" class="form-control" />
+                <span asp-validation-for="ReviewCont" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

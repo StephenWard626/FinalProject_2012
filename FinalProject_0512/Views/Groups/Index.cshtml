@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FinalProject_0512.Models.Groups>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupGenre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupSeries)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupGenre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupSeries)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberCount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GroupID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GroupID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GroupID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
