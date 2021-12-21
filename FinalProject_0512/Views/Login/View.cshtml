@@ -1,0 +1,91 @@
+﻿@model FinalProject_0512.Models.Users
+
+@{
+    ViewData["Title"] = "View";
+}
+<!--
+<h1>View</h1>
+
+<div>
+    <h4>Users</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmailAdd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmailAdd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminAcc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminAcc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PremiumAcc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PremiumAcc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UserID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+    -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+
+</head>
+<body>
+    <h2>Login Page</h2><br>
+    <div class="login">
+        <form id="login" method="get" action="login.php">
+            <label>
+                <b>
+                    User Name
+                </b>
+            </label>
+            <input type="text" name="Uname" id="Uname" placeholder="Username">
+            <br><br>
+            <label>
+                <b>
+                    Password
+                </b>
+            </label>
+            <input type="Password" name="Pass" id="Pass" placeholder="Password">
+            <br><br>
+            <input type="button" name="log" id="log" value="Log In Here">
+            <br><br>
+            <input type="checkbox" id="check">
+            <span>Remember me</span>
+            <br><br>
+            Forgot <a href="#">Password</a>
+        </form>
+    </div>
+</body>
+</html> 
