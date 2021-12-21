@@ -54,13 +54,38 @@ namespace FinalProject_0512.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserID,Username,FirstName,LastName,EmailAdd,AdminAcc,PremiumAcc")] Users users)
+        /*public async Task<IActionResult> Create([Bind("UserID,Username,FirstName,LastName,EmailAdd,AdminAcc,PremiumAcc")] Users users)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(users);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            return View(users);
+        }
+        */
+
+        public async Task<IActionResult> Create(AdminUsers users)
+        {
+            if (ModelState.IsValid)
+            {
+                AdminUsers au1 = new AdminUsers()
+                {
+                    UserID = users.UserID,
+                    FirstName = users.FirstName,
+                    LastName = users.LastName,
+                    Username = users.Username,
+                    EmailAdd = users.EmailAdd,
+                    PremiumAcc = users.PremiumAcc,
+                    AdminAcc = users.AdminAcc,
+                    UserPassword = users.UserPassword
+                };
+
+                _context.Add(au1);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
             }
             return View(users);
         }
@@ -86,7 +111,38 @@ namespace FinalProject_0512.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserID,Username,FirstName,LastName,EmailAdd,AdminAcc,PremiumAcc")] Users users)
+        /*public async Task<IActionResult> Edit(int id, [Bind("UserID,Username,FirstName,LastName,EmailAdd,UserPassword,AdminAcc,PremiumAcc")] AdminUsers users)
+        {
+            if (id != users.UserID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(users);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UsersExists(users.UserID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(users);
+        }
+        */
+
+        public async Task<IActionResult> Edit(int id, [Bind("UserID,Username,FirstName,LastName,EmailAdd,UserPassword,AdminAcc,PremiumAcc")] AdminUsers users)
         {
             if (id != users.UserID)
             {
