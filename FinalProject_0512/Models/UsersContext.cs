@@ -20,6 +20,8 @@ namespace FinalProject_0512.Models
 
         }
 
+        public DbSet<FinalProject_0512.Models.Users> Users_1 { get; set; }
+
         
     }
 }
