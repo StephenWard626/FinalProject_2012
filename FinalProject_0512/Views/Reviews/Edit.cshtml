@@ -1,22 +1,20 @@
 ﻿@model FinalProject_0512.Models.Reviews
 
-@{
-    ViewData["Title"] = "Edit";
-}
 
-<h1>Edit</h1>
+@{ ViewData["Title"] = "Edit Review"; }
 
-<h4>Reviews</h4>
+<h1>Edit Review</h1>
+
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ReviewID" />
+            <input type="hidden" asp-for="ReviewBook" />
             <div class="form-group">
-                <label asp-for="ReviewBook" class="control-label"></label>
-                <input asp-for="ReviewBook" class="form-control" />
-                <span asp-validation-for="ReviewBook" class="text-danger"></span>
+
             </div>
             <div class="form-group">
                 <label asp-for="ReviewCont" class="control-label"></label>
@@ -36,7 +34,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Review List</a>
 </div>
 
 @section Scripts {

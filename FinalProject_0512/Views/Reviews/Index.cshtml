@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<FinalProject_0512.Models.Reviews>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Reviews"; }
 
-<h1>Index</h1>
+<h1>Reviews</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Add Review</a>
 </p>
 <table class="table">
     <thead>
@@ -15,33 +13,39 @@
             <th>
                 @Html.DisplayNameFor(model => model.ReviewBook)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReviewCont)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Rating)
             </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewCont)
+            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewBook)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewCont)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ReviewID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ReviewID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ReviewID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReviewBook)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Rating)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.ReviewCont)
+    </td>
+
+    <td>
+        <!-- <a asp-action="Edit" asp-route-id="@item.ReviewID">Edit</a> | -->
+        <a asp-action="Details" asp-route-id="@item.ReviewID">Review Detail</a>
+        <!-- <a asp-action="Delete" asp-route-id="@item.ReviewID">Delete</a> -->
+    </td>
+</tr>}
     </tbody>
 </table>
