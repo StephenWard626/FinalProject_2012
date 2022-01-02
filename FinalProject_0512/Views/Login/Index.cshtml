@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FinalProject_0512.Models.Users>
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+</head>
+<body>
+
+    <div class="login">
+        <form id="login" method="get" action="login.php">
+            <label>
+                <b>
+                    Username
+                </b>
+            </label>
+            <input type="text" name="Uname" id="Uname" placeholder="Username">
+            <br><br>
+            <label>
+                <b>
+                    Password
+                </b>
+            </label>
+            <input type="Password" name="Pass" id="Pass" placeholder="Password">
+            <br><br>
+                <input type="submit" value="Details" class="btn btn-primary" />
+            <br><br>
+            <input type="checkbox" id="check">
+            <span>Remember me</span>
+            <br><br>
+            <a href="#">Forgot Password</a>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    
+    <script src="~/js/login.js"></script>
+
+</body>
+</html>
