@@ -19,6 +19,7 @@ namespace FinalProject_0512.Models
         public string ReviewCont { get; set; }
         [Required]
         [DisplayName("Rating")]
+        [Range (0,5)]
         public int Rating { get; set; }
     }
 }
