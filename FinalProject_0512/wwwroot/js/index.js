@@ -6,6 +6,7 @@ $(document).ready(function () {
     var placeHldr = '<img src="https://via.placeholder.com/150">';
     var searchData;
     var searchAuth;
+    var searchPub;
 
     //listener for search button
     $("#search").click(function () {
@@ -13,18 +14,40 @@ $(document).ready(function () {
         document.body.style.backgroundImage = "url('')";
         searchData = $("#search-box").val();
         searchAuth = $("#search-auth").val();
+        searchPub = $("#search-pub").val();
 
-        
+
         //handling empty search input field
         //if (searchData === "" || searchData === null) {
-            //if(){
-            //displayError();
+        //if(){
+        //displayError();
         //}
         //else {
-            // console.log(searchData);
-            // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData, getBookData()});
+        // console.log(searchData);
+        // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData, getBookData()});
+
+        //Query Builder
+        var queryURL = bookUrl;
+
+        if (searchData !== "") {
+            var searchItem = "+intitle:" + searchData;
+            queryURL = queryURL + searchItem;
+        }
+
+        if (searchAuth !== "") {
+            var searchItem = "+inauthor:" + searchAuth;
+            queryURL = queryURL + searchItem;
+        }
+
+        if (searchPub !== "") {
+            var searchItem = "+inpublisher:" + searchPub;
+            queryURL = queryURL + searchItem;
+        }
+
+
+
         $.ajax({
-            url: bookUrl + searchData + "&maxResults=40&" + apiKey,
+            url: queryURL + "&maxResults=40&" + apiKey,
                 dataType: "json",
                 success: function (response) {
                     console.log(response)
@@ -44,6 +67,7 @@ $(document).ready(function () {
         //}
         $("#search-box").val(""); //clearn search box
         $("#search-auth").val("");
+        $("#search-pub").val("");
     });
 
     /*
